@@ -1,0 +1,32 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.body{
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+    
+}
+
+.example-spacer {
+    flex:1 1 auto;
+}
+
+
+.admin-container {
+    width: auto;
+    height: 860px;
+    margin: 10px;
+    border: 0px solid #555;
+    .sidenav-mat {
+        width: auto;
+        height: 100%;
+      }
+      .admin-main {
+        padding-left: 30px;
+      }
+  }
+
+  

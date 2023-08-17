@@ -1,0 +1,25 @@
+table {
+  width: 100%;
+}
+
+.delete{
+
+  font-size: 30px;
+  cursor: pointer;
+ 
+}
+.delete:hover {
+  color:red
+  
+}
+.edit {
+
+  cursor: pointer;
+  color : white;
+  border-radius: 50%;
+  background-color: #3F51B5;
+  font-size: 17px;
+  padding: 3px;
+  
+  
+}
