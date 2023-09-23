@@ -56,6 +56,9 @@ dependencies:
   mdb-ui-kit:
     specifier: ^6.4.0
     version: 6.4.0
+  ngx-file-drop:
+    specifier: ^16.0.0
+    version: 16.0.0(@angular/common@16.1.0)(@angular/core@16.1.0)
   ngx-spinner:
     specifier: ^16.0.2
     version: 16.0.2(@angular/animations@16.1.0)(@angular/common@16.1.0)(@angular/core@16.1.0)
@@ -5787,6 +5790,18 @@ packages:
   /neo-async@2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
     dev: true
+
+  /ngx-file-drop@16.0.0(@angular/common@16.1.0)(@angular/core@16.1.0):
+    resolution: {integrity: sha512-33RPoZBAiMkV110Rzu3iOrzGcG5M20S4sAiwLzNylfJobu9qVw5XR83FhUelSeqJRoaDxXBRKAozYCSnUf2CNw==}
+    engines: {node: '>= 14.5.0', npm: '>= 6.9.0'}
+    peerDependencies:
+      '@angular/common': '>=14.0.0'
+      '@angular/core': '>=14.0.0'
+    dependencies:
+      '@angular/common': 16.1.0(@angular/core@16.1.0)(rxjs@7.8.0)
+      '@angular/core': 16.1.0(rxjs@7.8.0)(zone.js@0.13.0)
+      tslib: 2.5.3
+    dev: false
 
   /ngx-spinner@16.0.2(@angular/animations@16.1.0)(@angular/common@16.1.0)(@angular/core@16.1.0):
     resolution: {integrity: sha512-MZpOHb3dvSqD6xiEdR+EtOfPY2r1kfA7t5Hv5IVwi7gkbTwVgnqxDWdOYJ/HW1pSZ5iEGhqlJqWg6CysLmNfHQ==}

@@ -11,25 +11,17 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import {MdbCollapseModule} from 'mdb-angular-ui-kit/collapse';
+import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse';
 import { MdbDropdownModule } from 'mdb-angular-ui-kit/dropdown';
-import { HomeModule} from './ui/components/home/home.module';
+import { HomeModule } from './ui/components/home/home.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import {NgbCollapseModule} from '@ng-bootstrap/ng-bootstrap'; 
-import {ToastrModule} from 'ngx-toastr';
-import { NgxSpinnerModule } from "ngx-spinner";
-import { BaseComponent } from './base/base.component';
+import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
+import { ToastrModule } from 'ngx-toastr';
+import { NgxSpinnerModule } from 'ngx-spinner';
 import { HttpClientModule } from '@angular/common/http';
-import { DeleteDirective } from './directives/admin/delete.directive';
-import { DeleteDialogComponent } from './dialogs/delete-dialog/delete-dialog.component';
-
-
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -47,11 +39,11 @@ import { DeleteDialogComponent } from './dialogs/delete-dialog/delete-dialog.com
     NgbCollapseModule,
     ToastrModule.forRoot(),
     NgxSpinnerModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
-    {provide : "baseUrl", useValue: "https://localhost:7224/api", multi: true}
+    { provide: 'baseUrl', useValue: 'https://localhost:7224/api', multi: true },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

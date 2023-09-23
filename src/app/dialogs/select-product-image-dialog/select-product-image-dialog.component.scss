@@ -1,0 +1,27 @@
+.mat-typography {
+  height: 500px;
+}
+
+.product-image-card {
+  margin: 5px;
+  max-width: 100px;
+  transition: transform 0.2s;
+  float: left;
+}
+
+.product-image-card:hover {
+  filter: grayscale(60%);
+  transform: scale(1.2);
+  button {
+    display: block;
+  }
+}
+
+button {
+  display: none;
+  size: 10px;
+  justify-content: center;
+  align-items: center;
+  top: -50px;
+  left: 30px;
+}
