@@ -11,14 +11,13 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse';
-import { MdbDropdownModule } from 'mdb-angular-ui-kit/dropdown';
 import { HomeModule } from './ui/components/home/home.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { HttpClientModule } from '@angular/common/http';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [AppComponent],
@@ -32,14 +31,13 @@ import { HttpClientModule } from '@angular/common/http';
     MatIconModule,
     MatMenuModule,
     MatToolbarModule,
-    MdbCollapseModule,
-    MdbDropdownModule,
     HomeModule,
     NgbModule,
     NgbCollapseModule,
     ToastrModule.forRoot(),
     NgxSpinnerModule,
     HttpClientModule,
+    FontAwesomeModule,
   ],
   providers: [
     { provide: 'baseUrl', useValue: 'https://localhost:7224/api', multi: true },

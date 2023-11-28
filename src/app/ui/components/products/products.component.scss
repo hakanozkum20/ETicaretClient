@@ -1,0 +1,22 @@
+.register {
+  flex: auto;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 6;
+  padding-left: 6;
+  padding-top: 12;
+  padding-bottom: 12;
+  @media (min-width: 1024px) {
+    padding-right: 8;
+    padding-left: 8;
+  }
+}
+.register .img {
+  // sm:mx-auto sm:w-full sm:max-w-sm
+  @media (min-width: 640px) {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 24rem;
+  }
+}

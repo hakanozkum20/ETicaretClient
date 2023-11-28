@@ -5,18 +5,20 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-
-
+import { HomeModule } from './components/home/home.module';
+import { UiComponent } from './ui.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [UiComponent],
   imports: [
     CommonModule,
     ComponentsModule,
     MatButtonModule,
     MatIconModule,
     MatMenuModule,
-    MatToolbarModule
-  ]
+    MatToolbarModule,
+    HomeModule,
+  ],
+  exports: [HomeModule],
 })
-export class UiModule { }
+export class UiModule {}

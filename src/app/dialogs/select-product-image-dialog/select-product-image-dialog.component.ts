@@ -6,6 +6,13 @@ import { List_Product_Image } from 'src/app/contracts/list_product_images';
 import { ProductService } from 'src/app/services/common/models/product.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { SpinnerType } from 'src/app/base/base.component';
+import { DialogService } from 'src/app/services/common/dialog.service';
+import {
+  DeleteDialogComponent,
+  DeleteState,
+} from '../delete-dialog/delete-dialog.component';
+
+declare var $: any;
 
 @Component({
   selector: 'app-select-product-image-dialog',
@@ -20,7 +27,8 @@ export class SelectProductImageDialogComponent
     dialogRef: MatDialogRef<SelectProductImageDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: SelectProductImageState | string,
     private productService: ProductService,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    private dialogService: DialogService
   ) {
     super(dialogRef);
   }
@@ -43,11 +51,23 @@ export class SelectProductImageDialogComponent
     );
   }
 
-  async deleteImage(imageId: string) {
-    this.spinner.show(SpinnerType.BackGroundWith);
-    await this.productService.deleteImage(this.data as string, imageId, () =>
-      this.spinner.hide(SpinnerType.BackGroundWith)
-    );
+  async deleteImage(imageId: string, event: any) {
+    this.dialogService.openDialog({
+      componentType: DeleteDialogComponent,
+      data: DeleteState.Yes,
+      afterClosed: async () => {
+        this.spinner.show(SpinnerType.BackGroundWith);
+        await this.productService.deleteImage(
+          this.data as string,
+          imageId,
+          () => {
+            this.spinner.hide(SpinnerType.BackGroundWith);
+            var card = $(event.srcElement).parent().parent();
+            card.fadeOut(500);
+          }
+        );
+      },
+    });
   }
 }
 

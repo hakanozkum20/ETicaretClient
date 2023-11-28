@@ -1,0 +1,173 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css"
+  integrity="sha512-rRQtF4V2wtAvXsou4iUAs2kXHi3Lj9NE7xJR77DE7GHsxgY9RTWy93dzMXgDIG8ToiRTD45VsDNdTiUagOFeZA=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+  rel="stylesheet"
+/>
+
+<div class="limiter">
+  <div class="container-login100">
+    <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+      <form
+        [formGroup]="frm"
+        (ngSubmit)="onSubmit(frm.value)"
+        class="login100-form validate-form"
+      >
+        <span class="login100-form-title p-b-49"> Register </span>
+
+        <div
+          class="wrap-input100 validate-input m-b-23 form-group"
+          data-validate="Username is required"
+        >
+          <span for="nameSurname" class="label-input100">Ad Soyad</span>
+          <input
+            style="border: none"
+            formControlName="nameSurname"
+            class="input100 form-control"
+            type="text"
+            id="nameSurname"
+            name="nameSurname"
+            placeholder="Adınız ve Soyadınız"
+            [ngClass]="{
+              'is-invalid': submitted && component.nameSurname.errors
+            }"
+          />
+          <span class="focus-input100" data-symbol="&#xf206;"></span>
+          <small
+            class="form-text text-muted invalid-feedback"
+            *ngIf="submitted && component.nameSurname.errors?.required"
+            >Lütfen ad soyadı boş geçmeyiniz.</small
+          >
+          <small
+            class="form-text text-muted invalid-feedback"
+            *ngIf="
+              submitted &&
+              (component.nameSurname.errors?.maxlength ||
+                component.nameSurname.errors?.minlength)
+            "
+            >Lütfen ad soyadı 3 ile 50 karakter arasında yazınız.</small
+          >
+        </div>
+
+        <div class="wrap-input100 validate-input form-group">
+          <span for="username" class="label-input100">Kullanıcı Adı</span>
+          <input
+            formControlName="username"
+            class="form-control input100"
+            type="text"
+            id="username"
+            [ngClass]="{ 'is-invalid': submitted && component.username.errors }"
+            placeholder="Kullanıcı Adınız"
+          />
+          <span class="focus-input100" data-symbol="&#xf206;"></span>
+          <small
+            class="form-text text-muted invalid-feedback"
+            *ngIf="submitted && component.username.errors?.required"
+            >Lütfen kullanıcı adını boş geçmeyiniz.</small
+          >
+        </div>
+
+        <div class="wrap-input100 validate-input form-group">
+          <span for="email" class="label-input100">Email</span>
+          <input
+            formControlName="email"
+            class="form-control input100"
+            type="email"
+            id="email"
+            [ngClass]="{ 'is-invalid': submitted && component.email.errors }"
+            placeholder="Email adresi"
+          />
+          <span class="focus-input100" data-symbol="&#xf206;"></span>
+          <small
+            class="form-text text-muted invalid-feedback"
+            *ngIf="submitted && component.email.errors?.required"
+            >Lütfen emaili boş geçmeyiniz.</small
+          >
+          <small
+            class="form-text text-muted invalid-feedback"
+            *ngIf="submitted && component.email.errors?.email"
+            >Lütfen emaili düzgün giriniz.</small
+          >
+        </div>
+
+        <div class="wrap-input100 validate-input form-group">
+          <span for="password" class="label-input100">Şifre</span>
+          <input
+            formControlName="password"
+            class="form-control input100"
+            type="password"
+            id="password"
+            [ngClass]="{ 'is-invalid': submitted && component.password.errors }"
+            placeholder="Şifre"
+          />
+          <span class="focus-input100" data-symbol="&#xf206;"></span>
+        </div>
+
+        <div class="wrap-input100 validate-input form-group">
+          <span for="passwordConfirm" class="label-input100"
+            >Şifre tekrarı</span
+          >
+          <input
+            formControlName="passwordConfirm"
+            class="form-control input100"
+            type="password"
+            id="passwordConfirm"
+            [ngClass]="{
+              'is-invalid': submitted && component.passwordConfirm.errors
+            }"
+            placeholder="Şifre"
+          />
+          <span class="focus-input100" data-symbol="&#xf206;"></span>
+          <small *ngIf="submitted && frm.hasError('notSame')"
+            >Lütfen şifreyi doğrulayınız.</small
+          >
+        </div>
+        <div class="text-right p-t-8 p-b-31">
+          <a routerLink="../login"> Kayıtlı mısın ? </a>
+        </div>
+        <div class="container-login100-form-btn">
+          <div class="form-control wrap-login100-form-btn">
+            <div class="login100-form-bgbtn"></div>
+            <button type="submit" class="login100-form-btn">Register</button>
+          </div>
+        </div>
+
+        <div
+          style="margin-top: 50px"
+          class="d-flex justify-content-center align-items-center"
+        >
+          <a
+            style="width: 50px; height: 50px; color: white"
+            href="#"
+            class="me-3 rounded-circle d-flex justify-content-center align-items-center bg1 social"
+          >
+            <i class="fa fa-facebook"></i>
+          </a>
+
+          <a
+            style="width: 50px; height: 50px; color: white"
+            href="#"
+            class="me-3 rounded-circle d-flex justify-content-center align-items-center bg2 social"
+          >
+            <i class="fa fa-twitter"></i>
+          </a>
+
+          <a
+            style="width: 50px; height: 50px; color: white"
+            href="#"
+            class="me-3 rounded-circle d-flex justify-content-center align-items-center bg3 social"
+          >
+            <i class="fa fa-google"></i>
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

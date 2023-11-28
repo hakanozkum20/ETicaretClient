@@ -1,20 +1,20 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/app/environments/environments';
 
 @Injectable({
   providedIn: 'root',
 })
 export class HttpClientService {
+  baseUrl = environment.baseUrl;
   constructor(
-    private httpClient: HttpClient,
-    @Inject('baseUrl') private baseUrl: string
-  ) {}
+    private httpClient: HttpClient //
+  ) // @Inject('baseUrl') private baseUrl: string
+  {}
 
   private url(requestParameter: Partial<RequestParameters>): string {
-    return `${
-      requestParameter.baseUrl ? requestParameter.baseUrl : this.baseUrl
-    }/${requestParameter.controller}${
+    return `${this.baseUrl}/${requestParameter.controller}${
       requestParameter.action ? `/${requestParameter.action}` : ''
     }`;
   }
@@ -24,11 +24,13 @@ export class HttpClientService {
     id?: string
   ): Observable<T> {
     let url: string = '';
+
     if (requestParameter.fullEndPoint) url = requestParameter.fullEndPoint;
     else
       url = `${this.url(requestParameter)}${id ? `/${id}` : ''}${
         requestParameter.queryString ? `?${requestParameter.queryString}` : ''
       }`;
+
     return this.httpClient.get<T>(url, { headers: requestParameter.headers });
   }
 
